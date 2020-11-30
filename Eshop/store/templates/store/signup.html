@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block content%}
+{% block content %}
 
 <div class="contaner"></div>
 <div class="p-4 m-4">
@@ -7,27 +7,32 @@
       <h3 class="alert alert-light border rounded ">Create An Account </h3>
         <form action="/signup/" method="POST">
             {% csrf_token %}
+            {% if error %}
+              <div class="alert alert-danger" role="alert">
+                {{error}}
+              </div>
+            {% endif %}
           <!-- Firstname -->
             <div class="form-group">
                 <label for="">First Name</label>
-                <input class="form-control form-control-sm " required name="firstname"  type="text">
+                <input class="form-control form-control-sm"  required name="firstname"  value="{{ values.first_name }}" type="text">
             </div>
             <!-- Last name -->
             <div class="form-group">
                 <label for="">Last Name</label>
-                <input class="form-control form-control-sm"  required name="lastname" type="text">
+                <input class="form-control form-control-sm" value="{{ values.last_name }}" required name="lastname" type="text">
             </div>
           <!-- phone -->
             <div class="form-group">
                 <label for="">Mobile No.</label>
-                <input class="form-control form-control-sm" required name="phone" placeholder="1122334455" type="text">
+                <input class="form-control form-control-sm" value="{{ values.phone_no }}" required name="phone" placeholder="1122334455" type="text">
             </div>
 
 
             <!-- email -->
             <div class="form-group">
                 <label for="">Email</label>
-                <input class="form-control form-control-sm" required name="email" placeholder="example@gmail.com" type="email">
+                <input class="form-control form-control-sm" value="{{ values.email }}" required name="email" placeholder="example@gmail.com" type="email">
             </div>
 
             <!-- Password -->

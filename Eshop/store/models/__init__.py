@@ -1,3 +1,3 @@
 from .product import Product
 from .category import Category
-from .costomer import Costomer
+from .customer import Customer
