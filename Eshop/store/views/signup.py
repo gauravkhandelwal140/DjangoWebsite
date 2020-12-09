@@ -7,6 +7,7 @@ from django.contrib.auth.hashers import make_password
 
 class Signup(View):
     def get(self ,request):
+        print(request.session.get('customer_email'))
         return render(request, 'store/signup.html', )
 
     def post(self, request):

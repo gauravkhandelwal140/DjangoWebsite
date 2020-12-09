@@ -5,14 +5,14 @@ from .models.customer import Customer
 
 # Register your models here.
 class AdminProduct(admin.ModelAdmin):
-    list_display = ['name', 'price', 'category']
+    list_display = ['id','name', 'price', 'category']
 
 
 class Admincategory(admin.ModelAdmin):
-    list_display = ['name']
+    list_display = ['id','name']
 
 class Admincustomer(admin.ModelAdmin):
-    list_display = ['first_name', 'last_name','phone_no','email','password']
+    list_display = ['id','first_name', 'last_name','phone_no','email','password']
 
 admin.site.register(Product, AdminProduct)
 admin.site.register(Category, Admincategory)

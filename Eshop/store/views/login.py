@@ -18,8 +18,9 @@ class Login(View):
         if customer:
             flag = check_password(password, customer.password)
             if flag:
-                request.session['customer_id']=customer.id
+                request.session['customer']=customer.id
                 request.session['customer_email']=customer.email
+                request.session['customer_name']=customer.first_name
 
                 return redirect('homepage')
             else:
@@ -28,3 +29,7 @@ class Login(View):
         else:
             error_message = 'Email does not exist'
         return render(request, 'store/login.html', {'error': error_message})
+
+def logout(request):
+    request.session.clear()
+    return redirect('login')
