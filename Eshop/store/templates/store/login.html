@@ -3,8 +3,18 @@
 
 <div class="contaner">
 <div class="p-4 m-4">
-    <div class="col-lg-5 mb-4 mt-4 mx-auto border rounded pt-5">
-      <h3 class="alert alert-light border rounded ">Login Here</h3>
+    <div class="col-lg-4 mt-4 border mb-4 mx-auto rounded pt-4">
+        <div class="text-center col">
+
+                <img
+                src="https://i.pinimg.com/originals/49/d5/97/49d5971381e9c13c2ec4c613f1c072df.jpg" alt=""
+                class="" style="height: 150px;">
+
+
+
+      <h3 class="alert alert-light  rounded ">Login Here</h3>
+   <!-- <hr> -->
+</div>
         <form action="/login/" method="POST">
             {% csrf_token %}
             {% if error %}

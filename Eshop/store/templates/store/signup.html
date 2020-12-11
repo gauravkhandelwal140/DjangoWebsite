@@ -3,8 +3,16 @@
 
 <div class="contaner">
 <div class="p-4 m-4">
-    <div class="col-lg-5 mx-auto border rounded pt-5">
-      <h3 class="alert alert-light border rounded ">Create An Account </h3>
+    <div class="col-lg-4 rounded mx-auto border pt-4">
+         <div class="text-center col">
+
+                <img
+                src="https://i.pinimg.com/originals/49/d5/97/49d5971381e9c13c2ec4c613f1c072df.jpg" alt=""
+                class="" style="height: 150px;">
+
+      <h3 class="alert alert-light ">Create An Account </h3>
+             <hr>
+             </div>
         <form action="/signup/" method="POST">
             {% csrf_token %}
             {% if error %}
@@ -25,7 +33,7 @@
           <!-- phone -->
             <div class="form-group">
                 <label for="">Mobile No.</label>
-                <input class="form-control form-control-sm" value="{{ values.phone_no }}" required name="phone" placeholder="1122334455" type="text">
+                <input class="form-control form-control-sm" value="{{ values.phone_no }}" required name="phone" placeholder="1122334455" type="number">
             </div>
 
 

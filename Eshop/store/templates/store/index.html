@@ -1,8 +1,10 @@
 {% extends "base.html" %}
 {% load cart %}
-
+{% load custom_filter %}
 {% block content %}
 <div class="container-fluid mt-3">
+
+
 
  <div class="row">
      <!-- filter -->
@@ -19,10 +21,10 @@
         <div class="row">
             {% for product in products %}
             <div class="card mx-auto mb-3 " id="{{product.id}}" style="width: 16rem;">
-                <img src="{{ product.image.url }}" class="card-img-top" alt="...">
+                <img style="height:18rem" src="{{ product.image.url }}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <p class="card-title">{{ product.name }}</p>
-                    <p class="card-text"><b>{{ product.price }}</b></p>
+                    <p class="card-text"><b>{{ product.price|currency }}</b></p>
 
                 </div>
                 <div class="card-footer p-0 ">
@@ -36,7 +38,7 @@
                         </form>
 
                         <div class="text-center col p-2 ">{{ product|cart_quantity:request.session.cart }} in cart</div>
-                        
+
                         <form action="/#{{product.id}}" class="col-2" method="post">
                             {% csrf_token %}
                          <input name="product_id" type="text" value="{{ product.id }}" hidden >
@@ -59,7 +61,7 @@
 
 
 
-                
+
             </div>
             {% endfor %}
         </div>
